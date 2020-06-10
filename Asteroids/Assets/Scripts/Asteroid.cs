@@ -11,7 +11,7 @@ public class Asteroid : AsteroidsObject
 
 
 
-    private void OnEnable()
+    private void Start()
     {
         velocity += Random.insideUnitCircle * spawnSpeed;
     }
