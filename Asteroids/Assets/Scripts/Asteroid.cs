@@ -34,5 +34,6 @@ public class Asteroid : AsteroidsObject
             asteroidsObject.position = position;
             asteroidsObject.velocity = velocity; // randomized later in spawned OnEnable()
         }
+        Destroy(gameObject);
     }
 }
