@@ -26,4 +26,10 @@ public abstract class AsteroidsObject : MonoBehaviour
 
     [HideInInspector]
     public Vector2 velocity = Vector2.zero;
+
+    public Vector2 forward
+    {
+        get => transform.up;
+        set => transform.up = value;
+    }
 }

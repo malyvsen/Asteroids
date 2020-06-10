@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class Player : AsteroidsObject
 {
-    public float acceleration = 1f;
-    public float maxSpeed = 1f;
-    public float controlRadius = 0.1f;
+    public float acceleration = 2f;
+    public float maxSpeed = 16f;
+    public float turnSpeed = 360f;
 
 
 
@@ -22,19 +22,29 @@ public class Player : AsteroidsObject
 
     private void ControlMovement()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetKey(KeyCode.LeftArrow)) Turn(false);
+        if (Input.GetKey(KeyCode.RightArrow)) Turn(true);
+        if (Input.GetKey(KeyCode.UpArrow)) Accelerate();
+    }
+
+
+
+    private void Turn(bool right)
+    {
+        var angularSpeed = right ? -turnSpeed : turnSpeed;
+        var angleChange = angularSpeed * Time.deltaTime;
+        transform.Rotate(0f, 0f, angleChange);
+    }
+
+
+
+    private void Accelerate()
+    {
+        var velocityChange = forward * acceleration * Time.deltaTime;
+        var newVelocity = velocity + velocityChange;
+        if (newVelocity.magnitude < maxSpeed || newVelocity.magnitude < velocity.magnitude)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var toMouse = mousePos - position;
-            if (toMouse.magnitude > controlRadius)
-            {
-                var velocityChange = toMouse.normalized * acceleration * Time.deltaTime;
-                var newVelocity = velocity + velocityChange;
-                if (newVelocity.magnitude < maxSpeed || newVelocity.magnitude < velocity.magnitude)
-                {
-                    velocity = newVelocity;
-                }
-            }
+            velocity = newVelocity;
         }
     }
 }
