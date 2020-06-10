@@ -13,6 +13,7 @@ public abstract class Moving : MonoBehaviour
     protected void ApplyPhysics()
     {
         position += velocity * Time.deltaTime;
+        position = Universe.instance.Wrap(position);
         velocity *= Mathf.Exp(-drag * Time.deltaTime);
     }
 
