@@ -10,12 +10,15 @@ public class Player : AsteroidsObject
     public float maxSpeed = 16f;
     public float turnSpeed = 360f;
 
+    public GameObject missile = null;
+
 
 
     private void Update()
     {
         ControlMovement();
         ApplyPhysics();
+        ControlShooting();
     }
 
 
@@ -46,5 +49,22 @@ public class Player : AsteroidsObject
         {
             velocity = newVelocity;
         }
+    }
+
+
+
+    private void ControlShooting()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
+    }
+
+
+
+    private void Shoot()
+    {
+        var newMissile = Instantiate(missile);
+        var asteroidsObject = newMissile.GetComponent<AsteroidsObject>();
+        asteroidsObject.position = position;
+        asteroidsObject.forward = forward;
     }
 }
