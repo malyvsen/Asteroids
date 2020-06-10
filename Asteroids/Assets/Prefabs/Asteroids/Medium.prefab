@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 0
   velocity: {x: 0, y: 0}
-  spawnSpeed: 4
+  spawnSpeed: 8
   spawnOnExplode:
   - {fileID: 3575301710520161520, guid: 2e38cd75514d4ba439d80c6a4b0a62b1, type: 3}
   - {fileID: 3575301710520161520, guid: 2e38cd75514d4ba439d80c6a4b0a62b1, type: 3}

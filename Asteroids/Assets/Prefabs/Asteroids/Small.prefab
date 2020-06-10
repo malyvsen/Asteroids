@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 0
   velocity: {x: 0, y: 0}
-  spawnSpeed: 4
+  spawnSpeed: 16
   spawnOnExplode: []
 --- !u!1 &3575301711389203055
 GameObject:
