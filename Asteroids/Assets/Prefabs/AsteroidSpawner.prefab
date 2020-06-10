@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a131bd9f7a4c02740998f8dba4897653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawns: 1
+  secondsBetweenSpawns: 4
   asteroid: {fileID: 8710931685271114743, guid: 70e0d8502e16fc142b49f5f294c1e741,
     type: 3}
