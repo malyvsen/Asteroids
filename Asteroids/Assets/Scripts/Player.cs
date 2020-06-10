@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Player : AsteroidsObject
+public class Player : Moving
 {
     public static Player instance;
 

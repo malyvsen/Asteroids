@@ -27,7 +27,7 @@ public class AsteroidSpawner : MonoBehaviour
     private void Spawn()
     {
         var spawned = Instantiate(asteroid);
-        var asteroidsObject = spawned.GetComponent<AsteroidsObject>();
-        asteroidsObject.position = Player.instance.position + new Vector2(1f, 1f); // TODO: should spawn on opposite side of world
+        var moving = spawned.GetComponent<Moving>();
+        moving.position = Player.instance.position + new Vector2(1f, 1f); // TODO: should spawn on opposite side of world
     }
 }

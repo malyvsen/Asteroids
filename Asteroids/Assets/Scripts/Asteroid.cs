@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Asteroid : AsteroidsObject
+public class Asteroid : Moving
 {
     public float spawnSpeed = 4f;
     public List<GameObject> spawnOnExplode = new List<GameObject>();

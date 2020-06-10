@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public abstract class AsteroidsObject : MonoBehaviour
+public abstract class Moving : MonoBehaviour
 {
     public float drag = 4f;
 
@@ -21,10 +21,10 @@ public abstract class AsteroidsObject : MonoBehaviour
     protected void LocalSpawn(GameObject prototype)
     {
         var spawned = Instantiate(prototype);
-        var asteroidsObject = spawned.GetComponent<AsteroidsObject>();
-        asteroidsObject.position = position;
-        asteroidsObject.velocity = velocity;
-        asteroidsObject.forward = forward;
+        var moving = spawned.GetComponent<Moving>();
+        moving.position = position;
+        moving.velocity = velocity;
+        moving.forward = forward;
     }
 
 

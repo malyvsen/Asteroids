@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Missile : AsteroidsObject
+public class Missile : Moving
 {
     public float speed = 32f;
 
