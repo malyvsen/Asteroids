@@ -29,10 +29,7 @@ public class Asteroid : AsteroidsObject
     {
         foreach (var toSpawn in spawnOnExplode)
         {
-            var spawned = Instantiate(toSpawn);
-            var asteroidsObject = spawned.GetComponent<AsteroidsObject>();
-            asteroidsObject.position = position;
-            asteroidsObject.velocity = velocity; // randomized later in spawned OnEnable()
+            LocalSpawn(toSpawn);
         }
         Destroy(gameObject);
     }

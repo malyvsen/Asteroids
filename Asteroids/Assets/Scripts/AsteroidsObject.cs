@@ -18,6 +18,17 @@ public abstract class AsteroidsObject : MonoBehaviour
 
 
 
+    protected void LocalSpawn(GameObject prototype)
+    {
+        var spawned = Instantiate(prototype);
+        var asteroidsObject = spawned.GetComponent<AsteroidsObject>();
+        asteroidsObject.position = position;
+        asteroidsObject.velocity = velocity;
+        asteroidsObject.forward = forward;
+    }
+
+
+
     public Vector2 position
     {
         get => transform.position;

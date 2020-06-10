@@ -62,9 +62,6 @@ public class Player : AsteroidsObject
 
     private void Shoot()
     {
-        var newMissile = Instantiate(missile);
-        var asteroidsObject = newMissile.GetComponent<AsteroidsObject>();
-        asteroidsObject.position = position;
-        asteroidsObject.forward = forward;
+        LocalSpawn(missile);
     }
 }
