@@ -4,11 +4,10 @@ using UnityEngine;
 
 
 
-public class Player : MonoBehaviour
+public class Player : AsteroidsObject
 {
     public float acceleration = 1f;
     public float maxSpeed = 1f;
-    public float drag = 4f;
     public float controlRadius = 0.1f;
 
 
@@ -38,22 +37,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-
-
-    private void ApplyPhysics()
-    {
-        position += velocity;
-        velocity *= Mathf.Exp(-drag * Time.deltaTime);
-    }
-
-
-
-    public Vector2 position
-    {
-        get => transform.position;
-        set => transform.position = value;
-    }
-
-    private Vector2 velocity = Vector2.zero;
 }
