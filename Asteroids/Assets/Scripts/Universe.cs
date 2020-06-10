@@ -9,6 +9,7 @@ public class Universe : MonoBehaviour
     public static Universe instance = null;
 
     public Camera boundingCamera = null;
+    public Camera sideCameraPrefab = null;
 
 
 
@@ -43,5 +44,40 @@ public class Universe : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+
+
+    private void Start()
+    {
+        SpawnSideCameras();
+    }
+
+
+
+    private void Update()
+    {
+        
+    }
+
+
+
+    private List<Camera> sideCameras = new List<Camera>();
+
+    private void SpawnSideCameras()
+    {
+        for (var x = -1; x <= 1; x++)
+        {
+            for (var y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0) continue; // central camera
+                var newCameraObject = Instantiate(sideCameraPrefab, parent: transform);
+                var newCamera = newCameraObject.GetComponent<Camera>();
+                newCamera.orthographicSize = boundingCamera.orthographicSize;
+                var translation = new Vector3(bounds.size.x * x, bounds.size.y * y);
+                newCamera.transform.position = bounds.center - translation;
+                sideCameras.Add(newCamera);
+            }
+        }
     }
 }
