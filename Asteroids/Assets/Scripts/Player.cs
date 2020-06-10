@@ -6,11 +6,20 @@ using UnityEngine;
 
 public class Player : AsteroidsObject
 {
+    public static Player instance;
+
     public float acceleration = 2f;
     public float maxSpeed = 16f;
     public float turnSpeed = 360f;
 
     public GameObject missile = null;
+
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
 
 
