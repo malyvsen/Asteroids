@@ -6,7 +6,7 @@ using UnityEngine;
 public class Missile : Moving
 {
     public float speed = 32f;
-    public float lifetime = 1f;
+    public float lifetime = 0.5f;
 
 
 

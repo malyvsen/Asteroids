@@ -10,6 +10,7 @@ public class Player : Moving
     public float turnSpeed = 360f;
 
     public GameObject missile = null;
+    public float shotsPerSecond = 2f;
 
 
 
@@ -56,9 +57,18 @@ public class Player : Moving
 
 
 
+    private float lastShotTime = float.NegativeInfinity;
+
     private void ControlShooting()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (Time.time > lastShotTime + 1f / shotsPerSecond)
+            {
+                Shoot();
+                lastShotTime = Time.time;
+            }
+        }
     }
 
 

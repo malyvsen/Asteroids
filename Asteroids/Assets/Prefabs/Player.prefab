@@ -228,10 +228,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 1
   velocity: {x: 0, y: 0}
+  angularVelocity: 0
   acceleration: 32
   maxSpeed: 16
   turnSpeed: 360
   missile: {fileID: 9220235253259871937, guid: 92f8afb6d1d1f464aa61605d5f4a2898, type: 3}
+  shotsPerSecond: 4
 --- !u!1 &6283352709794777367
 GameObject:
   m_ObjectHideFlags: 0
