@@ -10,18 +10,20 @@ public class Game : MonoBehaviour
     public GameObject playerPrefab = null;
     public GameObject asteroidSpawnerPrefab = null;
 
+    public GameObject startMenu = null;
+
 
 
     private void OnEnable()
     {
         instance = this;
-        StartRound();
     }
 
 
 
     public void StartRound()
     {
+        startMenu.SetActive(false);
         // destroy asteroids which may have been left over from the last round
         List<Asteroid> asteroidsToDestroy = new List<Asteroid>(Asteroid.enabledAsteroids);
         foreach (var asteroid in asteroidsToDestroy)
