@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
     public GameObject playerPrefab = null;
     public GameObject asteroidSpawnerPrefab = null;
 
-    public GameObject startMenu = null;
+    public UI ui = null;
 
 
 
@@ -23,7 +23,7 @@ public class Game : MonoBehaviour
 
     public void StartRound()
     {
-        startMenu.SetActive(false);
+        ui.state = UI.State.InGame;
         // destroy asteroids which may have been left over from the last round
         List<Asteroid> asteroidsToDestroy = new List<Asteroid>(Asteroid.enabledAsteroids);
         foreach (var asteroid in asteroidsToDestroy)
