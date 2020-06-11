@@ -9,20 +9,14 @@ public class UI : MonoBehaviour
 {
     public GameObject startMenu = null;
     public GameObject inGameUI = null;
-    public GameObject gameOverMenu = null;
+    public GameObject roundOverMenu = null;
 
     public List<GameObject> lifeIcons = new List<GameObject>();
-    public GameObject roundOverMenu = null;
 
 
 
     public int numLives
     {
-        get
-        {
-            return lifeIcons.Count(go => go.activeSelf);
-        }
-
         set
         {
             for (var idx = 0; idx < lifeIcons.Count; idx++)
@@ -34,28 +28,13 @@ public class UI : MonoBehaviour
 
 
 
-    public void ShowRoundOverMenu()
-    {
-        roundOverMenu.SetActive(true);
-    }
-
-
-
     public State state
     {
-        get
-        {
-            if (startMenu.activeSelf) return State.BeforeGame;
-            if (inGameUI.activeSelf) return State.InGame;
-            if (gameOverMenu.activeSelf) return State.GameOver;
-            throw new System.Exception("All UI disabled");
-        }
-
         set
         {
             startMenu.SetActive(value == State.BeforeGame);
-            inGameUI.SetActive(value == State.InGame);
-            gameOverMenu.SetActive(value == State.GameOver);
+            inGameUI.SetActive(value == State.InGame || value == State.RoundOver);
+            roundOverMenu.SetActive(value == State.RoundOver);
         }
     }
 
@@ -65,6 +44,6 @@ public class UI : MonoBehaviour
     {
         BeforeGame,
         InGame,
-        GameOver
+        RoundOver
     }
 }

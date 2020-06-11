@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
 
     public void EndGame()
     {
-        ui.state = UI.State.GameOver;
+        ui.state = UI.State.BeforeGame;
     }
 
 
@@ -70,7 +70,7 @@ public class Game : MonoBehaviour
         }
         else
         {
-            ui.ShowRoundOverMenu();
+            ui.state = UI.State.RoundOver;
         }
     }
 
