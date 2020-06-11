@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     public GameObject gameOverMenu = null;
 
     public List<GameObject> lifeIcons = new List<GameObject>();
+    public GameObject roundOverMenu = null;
 
 
 
@@ -29,6 +30,13 @@ public class UI : MonoBehaviour
                 lifeIcons[idx].SetActive(idx < value);
             }
         }
+    }
+
+
+
+    public void ShowRoundOverMenu()
+    {
+        roundOverMenu.SetActive(true);
     }
 
 

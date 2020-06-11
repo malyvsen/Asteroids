@@ -68,6 +68,17 @@ public class Game : MonoBehaviour
         {
             EndGame();
         }
+        else
+        {
+            ui.ShowRoundOverMenu();
+        }
+    }
+
+
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
 
