@@ -28,6 +28,6 @@ public class AsteroidSpawner : MonoBehaviour
     {
         var spawned = Instantiate(asteroid);
         var moving = spawned.GetComponent<Moving>();
-        moving.position = Player.instance.position + new Vector2(1f, 1f); // TODO: should spawn on opposite side of world
+        moving.position = Player.instance.position + new Vector2(10f, 1f); // TODO: should spawn on opposite side of world
     }
 }

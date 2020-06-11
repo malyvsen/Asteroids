@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.06
-  group: 1
-  collidesWith: []
 --- !u!1 &2164264032722235832
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +88,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.06
-  group: 1
-  collidesWith: []
 --- !u!1 &3204009647385125032
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.03
-  group: 1
-  collidesWith: []
 --- !u!1 &4026192953392892065
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3443697448828855318}
+  - component: {fileID: 940612187082182096}
   m_Layer: 0
   m_Name: Colliders
   m_TagString: Untagged
@@ -172,6 +167,20 @@ Transform:
   m_Father: {fileID: 9220235253259871938}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940612187082182096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026192953392892065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707037b8f2ffa7f46823d2e7142ac208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: 1
+  collisions: []
 --- !u!1 &7404859291649223148
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,8 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.06
-  group: 1
-  collidesWith: []
 --- !u!1 &9220235253259871937
 GameObject:
   m_ObjectHideFlags: 0

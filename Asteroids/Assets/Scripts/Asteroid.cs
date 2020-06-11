@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -21,7 +21,7 @@ public class Asteroid : Moving
     private void Update()
     {
         ApplyPhysics();
-        if (collidesWith.Count > 0)
+        if (collisions.Any())
         {
             Explode();
         }

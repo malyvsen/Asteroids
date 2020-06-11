@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,27 +31,6 @@ public abstract class Moving : MonoBehaviour
 
 
 
-    public List<Moving> collidesWith
-    {
-        get
-        {
-            var result = new List<Moving>();
-            foreach (var collisionNode in GetComponentsInChildren<CollisionNode>())
-            {
-                foreach (var collidedNode in collisionNode.collidesWith)
-                {
-                    var toAdd = collidedNode.GetComponentInParent<Moving>();
-                    if (toAdd == this) continue;
-                    if (result.Contains(toAdd)) continue;
-                    result.Add(toAdd);
-                }
-            }
-            return result;
-        }
-    }
-
-
-
     public Vector2 position
     {
         get => transform.position;
@@ -65,4 +45,8 @@ public abstract class Moving : MonoBehaviour
         get => transform.up;
         set => transform.up = value;
     }
+
+
+
+    public IEnumerable<Moving> collisions => GetComponentInChildren<CollisionManager>().collisions.Select(manager => manager.GetComponentInParent<Moving>());
 }
