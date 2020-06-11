@@ -6,15 +6,9 @@ using UnityEngine;
 
 public class Asteroid : Moving
 {
-    public float spawnSpeed = 4f;
     public List<GameObject> spawnOnExplode = new List<GameObject>();
-
-
-
-    private void Start()
-    {
-        velocity += Random.insideUnitCircle * spawnSpeed;
-    }
+    public float explodeRadius = 2f;
+    public float explodeSpeed = 4f;
 
 
 
@@ -31,9 +25,16 @@ public class Asteroid : Moving
 
     private void Explode()
     {
-        foreach (var toSpawn in spawnOnExplode)
+        var initialAngle = Random.Range(0f, 360f);
+        for (var spawnIndex = 0; spawnIndex < spawnOnExplode.Count; spawnIndex++)
         {
-            LocalSpawn(toSpawn);
+            var toSpawn = spawnOnExplode[spawnIndex];
+            var spawned = LocalSpawn(toSpawn);
+            var angle = initialAngle + 360f * spawnIndex / spawnOnExplode.Count;
+            var rotation = Quaternion.Euler(0f, 0f, angle);
+            Vector2 headingVector = rotation * Vector3.up;
+            spawned.position += headingVector * explodeRadius;
+            spawned.velocity += headingVector * explodeSpeed;
         }
         Destroy(gameObject);
     }

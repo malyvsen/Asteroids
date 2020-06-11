@@ -20,13 +20,14 @@ public abstract class Moving : MonoBehaviour
 
 
 
-    protected void LocalSpawn(GameObject prototype)
+    protected Moving LocalSpawn(GameObject prototype)
     {
         var spawned = Instantiate(prototype);
         var moving = spawned.GetComponent<Moving>();
         moving.position = position;
         moving.velocity = velocity;
         moving.forward = forward;
+        return moving;
     }
 
 

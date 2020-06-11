@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public float secondsBetweenSpawns = 1f;
     public GameObject asteroid = null;
+    public float secondsBetweenSpawns = 4f;
+    public float maxSpeed = 4f;
 
 
 
@@ -28,6 +29,7 @@ public class AsteroidSpawner : MonoBehaviour
     {
         var spawned = Instantiate(asteroid);
         var moving = spawned.GetComponent<Moving>();
-        moving.position = Player.instance.position + new Vector2(10f, 1f); // TODO: should spawn on opposite side of world
+        moving.velocity = Random.insideUnitCircle * maxSpeed;
+        moving.position = Player.instance.position + (Vector2)Universe.instance.bounds.extents;
     }
 }
