@@ -5,28 +5,11 @@ using UnityEngine;
 
 public class Player : Moving
 {
-    public static Player instance;
-
     public float acceleration = 2f;
     public float maxSpeed = 16f;
     public float turnSpeed = 360f;
 
     public GameObject missile = null;
-
-
-
-    private void OnEnable()
-    {
-        if (instance != null) throw new System.NotSupportedException("Cannot have multiple players enabled at the same time");
-        instance = this;
-    }
-
-
-
-    private void OnDisable()
-    {
-        instance = null;
-    }
 
 
 
@@ -37,7 +20,7 @@ public class Player : Moving
         ControlShooting();
         if (collisions.Any())
         {
-            Explode();
+            Game.instance.EndRound();
         }
     }
 
@@ -83,13 +66,5 @@ public class Player : Moving
     private void Shoot()
     {
         LocalSpawn(missile);
-    }
-
-
-
-    private void Explode()
-    {
-        Game.instance.EndRound();
-        Destroy(gameObject);
     }
 }

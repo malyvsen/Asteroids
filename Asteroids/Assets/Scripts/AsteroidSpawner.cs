@@ -29,6 +29,6 @@ public class AsteroidSpawner : MonoBehaviour
         var spawned = Instantiate(asteroid);
         var moving = spawned.GetComponent<Moving>();
         moving.velocity = Random.insideUnitCircle * maxSpeed;
-        moving.position = Player.instance.position + (Vector2)Universe.instance.bounds.extents;
+        moving.position = Game.player.position + (Vector2)Universe.instance.bounds.extents;
     }
 }
