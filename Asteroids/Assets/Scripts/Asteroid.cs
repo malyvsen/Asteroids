@@ -12,6 +12,20 @@ public class Asteroid : Moving
 
 
 
+    private void OnEnable()
+    {
+        enabledAsteroids.Add(this);
+    }
+
+
+
+    private void OnDisable()
+    {
+        enabledAsteroids.Remove(this);
+    }
+
+
+
     private void Update()
     {
         ApplyPhysics();
@@ -38,4 +52,8 @@ public class Asteroid : Moving
         }
         Destroy(gameObject);
     }
+
+
+
+    public static List<Asteroid> enabledAsteroids = new List<Asteroid>();
 }

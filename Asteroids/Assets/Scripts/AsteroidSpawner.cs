@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 
@@ -25,7 +24,7 @@ public class AsteroidSpawner : MonoBehaviour
 
 
 
-    private void Spawn()
+    public void Spawn()
     {
         var spawned = Instantiate(asteroid);
         var moving = spawned.GetComponent<Moving>();

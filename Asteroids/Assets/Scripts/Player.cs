@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
 
@@ -16,9 +15,17 @@ public class Player : Moving
 
 
 
-    private void Awake()
+    private void OnEnable()
     {
+        if (instance != null) throw new System.NotSupportedException("Cannot have multiple players enabled at the same time");
         instance = this;
+    }
+
+
+
+    private void OnDisable()
+    {
+        instance = null;
     }
 
 
@@ -28,6 +35,10 @@ public class Player : Moving
         ControlMovement();
         ApplyPhysics();
         ControlShooting();
+        if (collisions.Any())
+        {
+            Explode();
+        }
     }
 
 
@@ -72,5 +83,13 @@ public class Player : Moving
     private void Shoot()
     {
         LocalSpawn(missile);
+    }
+
+
+
+    private void Explode()
+    {
+        Game.instance.EndRound();
+        Destroy(gameObject);
     }
 }

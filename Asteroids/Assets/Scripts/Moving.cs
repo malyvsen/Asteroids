@@ -23,6 +23,7 @@ public abstract class Moving : MonoBehaviour
     protected Moving LocalSpawn(GameObject prototype)
     {
         var spawned = Instantiate(prototype);
+        spawned.transform.parent = transform.parent;
         var moving = spawned.GetComponent<Moving>();
         moving.position = position;
         moving.velocity = velocity;
