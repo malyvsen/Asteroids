@@ -11,6 +11,8 @@ public class Asteroid : Moving
     public float explodeRadius = 2f;
     public float explodeSpeed = 4f;
 
+    public GameObject explodeEffect = null;
+
 
 
     private void Start()
@@ -47,6 +49,7 @@ public class Asteroid : Moving
 
     private void Explode()
     {
+        Instantiate(explodeEffect);
         var initialAngle = Random.Range(0f, 360f);
         for (var spawnIndex = 0; spawnIndex < spawnOnExplode.Count; spawnIndex++)
         {

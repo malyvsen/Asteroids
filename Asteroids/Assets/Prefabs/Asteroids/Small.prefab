@@ -52,6 +52,8 @@ MonoBehaviour:
   spawnOnExplode: []
   explodeRadius: 2
   explodeSpeed: 4
+  explodeEffect: {fileID: 7325268381399088455, guid: 1b73dc3865fd9b145abacd746f7162cd,
+    type: 3}
 --- !u!1 &3575301711389203055
 GameObject:
   m_ObjectHideFlags: 0

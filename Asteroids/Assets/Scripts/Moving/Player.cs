@@ -12,6 +12,8 @@ public class Player : Moving
     public GameObject missile = null;
     public float shotsPerSecond = 2f;
 
+    public GameObject explodeEffect = null;
+
 
 
     private void Update()
@@ -21,6 +23,7 @@ public class Player : Moving
         ControlShooting();
         if (collisions.Any())
         {
+            Instantiate(explodeEffect);
             Game.instance.EndRound();
         }
     }

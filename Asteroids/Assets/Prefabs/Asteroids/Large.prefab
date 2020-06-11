@@ -234,6 +234,8 @@ MonoBehaviour:
   - {fileID: 3389643176323055076, guid: f2a16900a4c77e046ac4fe06e7a77eb8, type: 3}
   explodeRadius: 2
   explodeSpeed: 4
+  explodeEffect: {fileID: 7325268381399088455, guid: 1b73dc3865fd9b145abacd746f7162cd,
+    type: 3}
 --- !u!1 &8710931685468937576
 GameObject:
   m_ObjectHideFlags: 0

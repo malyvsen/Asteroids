@@ -234,6 +234,8 @@ MonoBehaviour:
   turnSpeed: 360
   missile: {fileID: 9220235253259871937, guid: 92f8afb6d1d1f464aa61605d5f4a2898, type: 3}
   shotsPerSecond: 4
+  explodeEffect: {fileID: 8879871452233968319, guid: 3d2337a30a49d8843b90380c814145b7,
+    type: 3}
 --- !u!1 &6283352709794777367
 GameObject:
   m_ObjectHideFlags: 0
