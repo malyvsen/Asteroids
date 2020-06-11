@@ -584,6 +584,10 @@ MonoBehaviour:
   startMenu: {fileID: 2018838466}
   inGameUI: {fileID: 1895777547}
   gameOverMenu: {fileID: 1614510951}
+  lifeIcons:
+  - {fileID: 497043202}
+  - {fileID: 1469722531}
+  - {fileID: 601967441}
 --- !u!1001 &1129524069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1463,6 +1467,7 @@ MonoBehaviour:
   asteroidSpawnerPrefab: {fileID: 2199794304537634287, guid: bba94b067ae92d541a1d9c86face3432,
     type: 3}
   ui: {fileID: 994652918}
+  livesRemaining: 3
 --- !u!4 &1964773067
 Transform:
   m_ObjectHideFlags: 0

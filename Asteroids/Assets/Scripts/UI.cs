@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +10,26 @@ public class UI : MonoBehaviour
     public GameObject startMenu = null;
     public GameObject inGameUI = null;
     public GameObject gameOverMenu = null;
+
+    public List<GameObject> lifeIcons = new List<GameObject>();
+
+
+
+    public int numLives
+    {
+        get
+        {
+            return lifeIcons.Count(go => go.activeSelf);
+        }
+
+        set
+        {
+            for (var idx = 0; idx < lifeIcons.Count; idx++)
+            {
+                lifeIcons[idx].SetActive(idx < value);
+            }
+        }
+    }
 
 
 

@@ -12,6 +12,9 @@ public class Game : MonoBehaviour
 
     public UI ui = null;
 
+    [HideInInspector]
+    public int livesRemaining = 3;
+
 
 
     private void OnEnable()
@@ -21,9 +24,25 @@ public class Game : MonoBehaviour
 
 
 
+    public void StartGame()
+    {
+        livesRemaining = 3;
+        StartRound();
+    }
+
+
+
+    public void EndGame()
+    {
+        ui.state = UI.State.GameOver;
+    }
+
+
+
     public void StartRound()
     {
         ui.state = UI.State.InGame;
+        ui.numLives = livesRemaining;
         // destroy asteroids which may have been left over from the last round
         List<Asteroid> asteroidsToDestroy = new List<Asteroid>(Asteroid.enabledAsteroids);
         foreach (var asteroid in asteroidsToDestroy)
@@ -42,6 +61,13 @@ public class Game : MonoBehaviour
         _player = null;
         Destroy(asteroidSpawner.gameObject);
         _asteroidSpawner = null;
+
+        livesRemaining -= 1;
+        ui.numLives = livesRemaining;
+        if (livesRemaining == 0)
+        {
+            EndGame();
+        }
     }
 
 
