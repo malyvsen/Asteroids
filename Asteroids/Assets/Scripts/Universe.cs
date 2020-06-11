@@ -41,7 +41,22 @@ public class Universe : MonoBehaviour
 
 
 
-    public float Distance(Vector2 a, Vector2 b) => Vector2.Distance(Wrap(a), Wrap(b));
+    public float Distance(Vector2 a, Vector2 b)
+    {
+        var aWrapped = Wrap(a);
+        var bWrapped = Wrap(b);
+        var minDistance = float.PositiveInfinity;
+        for (var x = -1; x <= 1; x++)
+        {
+            for (var y = -1; y <= 1; y++)
+            {
+                var bShifted = bWrapped + new Vector2(bounds.size.x * x, bounds.size.y * y);
+                var currentDistance = Vector2.Distance(aWrapped, bShifted);
+                if (currentDistance < minDistance) minDistance = currentDistance;
+            }
+        }
+        return minDistance;
+    }
 
 
 
