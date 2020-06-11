@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 3575301710520161520, guid: 2e38cd75514d4ba439d80c6a4b0a62b1, type: 3}
   explodeRadius: 2
   explodeSpeed: 4
-  explodeEffect: {fileID: 7325268381399088455, guid: 1b73dc3865fd9b145abacd746f7162cd,
+  explodeEffect: {fileID: 5663983765211085124, guid: f5a8f0d184d979f46af83c3b6045aea2,
     type: 3}
 --- !u!1 &3389643177334567803
 GameObject:
