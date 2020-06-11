@@ -30,6 +30,27 @@ public abstract class Moving : MonoBehaviour
 
 
 
+    public List<Moving> collidesWith
+    {
+        get
+        {
+            var result = new List<Moving>();
+            foreach (var collisionNode in GetComponentsInChildren<CollisionNode>())
+            {
+                foreach (var collidedNode in collisionNode.collidesWith)
+                {
+                    var toAdd = collidedNode.GetComponentInParent<Moving>();
+                    if (toAdd == this) continue;
+                    if (result.Contains(toAdd)) continue;
+                    result.Add(toAdd);
+                }
+            }
+            return result;
+        }
+    }
+
+
+
     public Vector2 position
     {
         get => transform.position;

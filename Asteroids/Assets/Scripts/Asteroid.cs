@@ -21,6 +21,10 @@ public class Asteroid : Moving
     private void Update()
     {
         ApplyPhysics();
+        if (collidesWith.Count > 0)
+        {
+            Explode();
+        }
     }
 
 
