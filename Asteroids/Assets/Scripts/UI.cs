@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,7 +7,7 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     public GameObject startMenu = null;
-    public GameObject inGameUI = null;
+    public GameObject livesCounter = null;
     public GameObject roundOverMenu = null;
 
     public List<GameObject> lifeIcons = new List<GameObject>();
@@ -28,22 +27,13 @@ public class UI : MonoBehaviour
 
 
 
-    public State state
+    public Game.State state
     {
         set
         {
-            startMenu.SetActive(value == State.BeforeGame);
-            inGameUI.SetActive(value == State.InGame || value == State.RoundOver);
-            roundOverMenu.SetActive(value == State.RoundOver);
+            startMenu.SetActive(value == Game.State.BeforeGame);
+            livesCounter.SetActive(value == Game.State.InGame || value == Game.State.RoundOver);
+            roundOverMenu.SetActive(value == Game.State.RoundOver);
         }
-    }
-
-
-
-    public enum State
-    {
-        BeforeGame,
-        InGame,
-        RoundOver
     }
 }

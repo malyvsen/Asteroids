@@ -17,6 +17,14 @@ public class Game : MonoBehaviour
 
 
 
+    private Player _player = null;
+    public static Player player => instance._player;
+
+    private AsteroidSpawner _asteroidSpawner = null;
+    public static AsteroidSpawner asteroidSpawner => instance._asteroidSpawner;
+
+
+
     private void OnEnable()
     {
         instance = this;
@@ -26,6 +34,8 @@ public class Game : MonoBehaviour
 
     public void StartGame()
     {
+        everPlayed = true;
+        previousRoundsTime = 0f;
         livesRemaining = 3;
         StartRound();
     }
@@ -34,14 +44,14 @@ public class Game : MonoBehaviour
 
     public void EndGame()
     {
-        ui.state = UI.State.BeforeGame;
+        state = State.BeforeGame;
     }
 
 
 
     public void StartRound()
     {
-        ui.state = UI.State.InGame;
+        state = State.InGame;
         ui.numLives = livesRemaining;
         // destroy asteroids which may have been left over from the last round
         List<Asteroid> asteroidsToDestroy = new List<Asteroid>(Asteroid.enabledAsteroids);
@@ -70,7 +80,7 @@ public class Game : MonoBehaviour
         }
         else
         {
-            ui.state = UI.State.RoundOver;
+            state = State.RoundOver;
         }
     }
 
@@ -83,9 +93,60 @@ public class Game : MonoBehaviour
 
 
 
-    private Player _player = null;
-    public static Player player => instance._player;
+    private State _state = State.BeforeGame;
 
-    private AsteroidSpawner _asteroidSpawner = null;
-    public static AsteroidSpawner asteroidSpawner => instance._asteroidSpawner;
+    public State state
+    {
+        get => _state;
+        private set
+        {
+            if (state == value) return;
+            if (state == State.InGame)
+            {
+                previousRoundsTime = totalTime;
+            }
+            if (value == State.InGame)
+            {
+                currentRoundStart = Time.time;
+            }
+            _state = value;
+            ui.state = value;
+        }
+    }
+
+
+
+    public enum State
+    {
+        BeforeGame,
+        InGame,
+        RoundOver
+    }
+
+
+
+    private float previousRoundsTime = 0f;
+    private float currentRoundStart = 0f;
+
+    public float totalTime
+    {
+        get
+        {
+            if (state == State.InGame) return previousRoundsTime + Time.time - currentRoundStart;
+            return previousRoundsTime;
+        }
+    }
+
+
+
+    private bool _everPlayed = false;
+
+    public bool everPlayed
+    {
+        get => _everPlayed;
+        private set
+        {
+            _everPlayed = value;
+        }
+    }
 }
