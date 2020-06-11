@@ -41,6 +41,10 @@ public class Universe : MonoBehaviour
 
 
 
+    public float Distance(Vector2 a, Vector2 b) => Vector2.Distance(Wrap(a), Wrap(b));
+
+
+
     private void Awake()
     {
         instance = this;
@@ -51,13 +55,6 @@ public class Universe : MonoBehaviour
     private void Start()
     {
         SpawnSideCameras();
-    }
-
-
-
-    private void Update()
-    {
-        
     }
 
 

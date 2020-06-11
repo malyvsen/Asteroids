@@ -44,10 +44,7 @@ public class CollisionManager : MonoBehaviour
                 {
                     foreach (var otherNode in otherManager.nodes)
                     {
-                        if (Vector2.Distance(node.position, otherNode.position) < node.radius + otherNode.radius)
-                        {
-                            collision = true;
-                        }
+                        collision = node.CollidesWith(otherNode);
                         if (collision) break;
                     }
                     if (collision) break;

@@ -10,6 +10,13 @@ public class CollisionNode : MonoBehaviour
 
 
 
+    public bool CollidesWith(CollisionNode other)
+    {
+        return Universe.instance.Distance(position, other.position) < radius + other.radius;
+    }
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = gizmoColor;
