@@ -16,6 +16,7 @@ public abstract class Moving : MonoBehaviour
         position += velocity * Time.deltaTime;
         position = Universe.instance.Wrap(position);
         velocity *= Mathf.Exp(-drag * Time.deltaTime);
+        transform.Rotate(0f, 0f, angularVelocity * Time.deltaTime);
     }
 
 
@@ -28,6 +29,7 @@ public abstract class Moving : MonoBehaviour
         moving.position = position;
         moving.velocity = velocity;
         moving.forward = forward;
+        moving.angularVelocity = angularVelocity;
         return moving;
     }
 
@@ -47,6 +49,9 @@ public abstract class Moving : MonoBehaviour
         get => transform.up;
         set => transform.up = value;
     }
+
+    [HideInInspector]
+    public float angularVelocity = 0f;
 
 
 

@@ -6,9 +6,17 @@ using UnityEngine;
 
 public class Asteroid : Moving
 {
+    public float maxAngularVelocity = 360f;
     public List<GameObject> spawnOnExplode = new List<GameObject>();
     public float explodeRadius = 2f;
     public float explodeSpeed = 4f;
+
+
+
+    private void Start()
+    {
+        angularVelocity = Random.Range(-maxAngularVelocity, maxAngularVelocity);
+    }
 
 
 
